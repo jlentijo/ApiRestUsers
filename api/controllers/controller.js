@@ -26,7 +26,7 @@ exports.createUser = function(req, res) {
 };
 
 exports.updateUser = function(req, res) {
-  Users.findOneAndUpdate(req.params.userId, req.body, {new: true}, function(err, user) {
+  Users.findOneAndUpdate({"_id": req.params.userId}, req.body, {new: true}, function(err, user) {
     if (err) res.send(err);
     res.json(user);
   });
